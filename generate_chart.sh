@@ -24,6 +24,6 @@ helm package --debug certs
 
 mv -f certs-*.tgz "${charts_path}"/
 
-helm repo index "${charts_path}" --url "https://math-nao.github.io/certs/${charts_path}"
+helm repo index "${charts_path}" --url "https://lonelycode.github.io/certs/${charts_path}"
 
 echo "Done."

@@ -1,0 +1,46 @@
+# Default values.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+service:
+  type: None
+
+image:
+  registry: homecore
+  repository: certs
+  tag: latest
+
+schedule: "0 0,12 * * *"
+
+backoffLimit: 1
+
+debug: false
+
+activeDeadlineSeconds: 600
+
+ttlSecondsAfterFinished: 120
+
+successfulJobsHistoryLimit: 5
+
+failedJobsHistoryLimit: 5
+
+manageAllNamespaces: false
+
+env:
+- name: GD_Key
+  value: YOURKEY
+- name: GD_Secret
+  value: YOURSECRET 
+
+
+demo:
+  enabled: false
+  image: mathnao/light-test-server
+  service:
+    type: ClusterIP
+    port: 8080
+  secretName: demo-ingress-cert
+  hosts:
+  - "example.com"
+  ingress:
+    annotations: {}
